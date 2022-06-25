@@ -12,24 +12,22 @@ let details = document.getElementById("details");
 details.style.fontWeight = "700";
 
 let inpkey = document.getElementById("name");
-// let inpvalue = document.getElementById("email");
-let inpage = document.getElementById("age");
+let inpvalue = document.getElementById("age");
 let btninsert = document.getElementById("btninsert");
 let outvalue = document.getElementById("output");
 
 btninsert.onclick = function () {
-    let details = {
-        Name: inpkey.value,
-        // value: inpvalue.value,
-        age: inpage.value,
-    };
-    let details_serialised = JSON.stringify(details);
-    localStorage.setItem("details", details_serialised);
-    let details_deserialised = JSON.parse(localStorage.getItem("details"));
+    let key = inpkey.value;
+    let value = inpvalue.value;
+
+    if (key && value) {
+        localStorage.setItem(key, value);
+    }
 };
 
 for (let i = 0; i < localStorage.length; i++) {
-    const name = localStorage.key(i);
-    const age = localStorage.getItem(name);
-    outvalue.innerHTML += `${name} ${age}  <br  />`;
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+
+    outvalue.innerHTML += `<li>${key}       ${value}</li><br/>`;
 }
