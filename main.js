@@ -30,7 +30,6 @@ btninsert.onclick = function () {
 
 for (let i = 0; i < localStorage.length; i++) {
     const name = localStorage.key(i);
-    // const mail = localStorage.getItem(name);
     const age = localStorage.getItem(name);
     outvalue.innerHTML += `${name} ${age}  <br  />`;
 }
